@@ -1,9 +1,13 @@
 import styles from './Button.module.css'
 
-const Button = () => {
+interface IProps {
+	isPending: boolean
+}
+
+const Button = ({ isPending }: IProps) => {
 	return (
-		<button type='submit' className={styles.btn}>
-			Log in
+		<button type='submit' className={styles.btn} disabled={isPending}>
+			{isPending ? 'Loading...' : 'Log in'}
 		</button>
 	)
 }
