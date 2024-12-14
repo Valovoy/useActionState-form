@@ -5,9 +5,10 @@ interface IProps {
 	placeholder: string
 	id: string
 	title: string
+	errorMessage?: string
 }
 
-const Input = ({ id, type, placeholder, title }: IProps) => {
+const Input = ({ id, type, placeholder, title, errorMessage }: IProps) => {
 	return (
 		<div className={styles.container}>
 			<label htmlFor={id} className={styles.title}>
@@ -15,11 +16,12 @@ const Input = ({ id, type, placeholder, title }: IProps) => {
 			</label>
 			<input
 				id={id}
+				name={id}
 				type={type}
 				className={styles.input}
 				placeholder={placeholder}
 			/>
-			{/* <span className={styles.error}>Error several times</span> */}
+			{errorMessage && <span className={styles.error}>{errorMessage}</span>}
 		</div>
 	)
 }
